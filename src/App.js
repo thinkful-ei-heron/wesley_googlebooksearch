@@ -8,12 +8,18 @@ import BookList from './BookList/bookList';
 
 export class App extends Component {
   state ={
-    results: ['test']
+    books: ['test']
+  }
+
+  setResults = (results) => {
+    this.setState({
+      books: results
+    });
   }
 
 
-// function to fetch books from the api and push to state. (array of objects)
 
+// function to fetch books from the api and push to state. (array of objects)
 // function to create a fetch request depending on the state of filterPrintType
 // function to create a fetch request depending on the state of filterBookType
 
@@ -26,10 +32,11 @@ export class App extends Component {
     <div className="App">
       <h1>Google Book Search</h1>
       <SearchBar 
-        books={this.state.results}
+        books={this.state.books}
+        pushResults={this.setResults}
       />
       <BookList 
-        books={this.state.results}
+        books={this.state.books}
       />
     </div>
   );

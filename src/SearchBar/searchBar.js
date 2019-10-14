@@ -6,12 +6,22 @@ import BookType from './bookType';
 
 export class SearchBar extends Component {
 
-// generateSearchUrl(url,searchTerm, printType, bookType) {
-//   if (printType && bookType){
-//     return `${url}${searchTerm}&printType=${printType}&filter=${bookType}`
-//   }
-// }
+  state={
+    printType:null,
+    bookType: null
+  }
 
+  setPrintTypeFilter = (printFilter) =>{
+    this.setState({
+      printType: printFilter
+    })
+  }
+
+  setBookTypeFilter = (bookFilter) => {
+    this.setState({
+      bookType: bookFilter
+    })
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -33,17 +43,16 @@ export class SearchBar extends Component {
       .then(data => {
         const results = data.items.map(items => {
           return {
-            price: items.saleInfo.saleability,
+            volumeInf: items,
+            price: items.saleInfo.retailPrice ? items.saleInfo.retailPrice.amount : "free",
             title: items.volumeInfo.title,
-            description: items.volumeInfo.description,
+            description: items.volumeInfo.description || 'No description provided.',
             authors: items.volumeInfo.authors,
             img: items.volumeInfo.imageLinks.thumbnail
           }
         })
-        //console.log(results);
-        this.setState({
-          books: results
-        })
+        console.log(results);
+        this.props.pushResults(results);
       })
 
   }
@@ -54,8 +63,12 @@ export class SearchBar extends Component {
           <form className="search_form" 
             onSubmit={e => this.handleSubmit(e)}>
           <SearchBox />
-            <PrintType />
-            <BookType />
+            <PrintType 
+              printFilter={this.setPrintTypeFilter}
+            />
+            <BookType 
+              bookFilter={this.setBookTypeFilter}
+            />
         </form>
       </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import BookList from './bookList';
 
 
 // Generate book item.
@@ -7,10 +7,16 @@ import React, { Component } from 'react'
 
 export class BookItem extends Component {
   render() {
+    
     return (
-      <div>
-        <h5>Book 01</h5>
-      </div>
+      console.log(this.props)
+      // <div>
+      //   <img src={this.props.img} alt='Book cover'/>
+      //   <h4>{this.props.title}</h4>
+      //   <h5>{this.props.authors}</h5>
+      //   <h6>{this.props.price}</h6>
+      //   <p>{this.props.description}</p>
+      // </div>
     )
   }
 }
