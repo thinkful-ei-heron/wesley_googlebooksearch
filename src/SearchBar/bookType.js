@@ -8,8 +8,8 @@ export class BookType extends Component {
     return (
       <div>
         <label>Book Type: </label>
-          <select type="selector" value="None" placeholder="book type">
-            <option value="placeholder">option 01</option>
+          <select type="selector" name="bookType" value="None" placeholder="book type">
+            <option value="ebooks">option 01</option>
           </select>
       </div>
     )

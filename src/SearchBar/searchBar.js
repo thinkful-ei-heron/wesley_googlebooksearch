@@ -15,11 +15,36 @@ export class SearchBar extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const data = new FormData(e.target.value);
-    console.log(data);
-    // const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+    //console.log(e.target);
+    //console.log(e.target.value);
+    const data = new FormData(e.target);
+    const searchTerm = data.get('searchBox');
+    const printType = data.get('printType');
+    const bookType = data.get('bookType');
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=';
     // const fullSearchUrl = generateSearchUrl(url,data);
-    // fetch(url,)
+    fetch(`${url}${searchTerm}&printType=${printType}&filter=${bookType}`)
+      .then(response => {
+        if(!response.ok){
+          throw new Error ('something went wrong');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const results = data.items.map(items => {
+          return {
+            price: items.saleInfo.saleability,
+            title: items.volumeInfo.title,
+            description: items.volumeInfo.description,
+            authors: items.volumeInfo.authors,
+            img: items.volumeInfo.imageLinks.thumbnail
+          }
+        })
+        //console.log(results);
+        this.setState({
+          books: results
+        })
+      })
 
   }
 

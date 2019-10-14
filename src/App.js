@@ -1,3 +1,5 @@
+// https://github.com/thinkful-ei-heron/wesley_googlebooksearch.git
+
 import React, { Component } from 'react'
 
 import './App.css';
@@ -6,10 +8,7 @@ import BookList from './BookList/bookList';
 
 export class App extends Component {
   state ={
-    searching: null,
-    results: [],
-    filterPrintType: null,
-    filterBookType: null
+    results: ['test']
   }
 
 
@@ -26,8 +25,12 @@ export class App extends Component {
    return (
     <div className="App">
       <h1>Google Book Search</h1>
-      <SearchBar />
-      <BookList />
+      <SearchBar 
+        books={this.state.results}
+      />
+      <BookList 
+        books={this.state.results}
+      />
     </div>
   );
  }
