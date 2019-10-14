@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 
+
+
+// Generate book item.
+
+
 export class BookItem extends Component {
   render() {
     return (
