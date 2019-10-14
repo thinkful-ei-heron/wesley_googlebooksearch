@@ -9,14 +9,13 @@ export class BookItem extends Component {
   render() {
     
     return (
-      console.log(this.props)
-      // <div>
-      //   <img src={this.props.img} alt='Book cover'/>
-      //   <h4>{this.props.title}</h4>
-      //   <h5>{this.props.authors}</h5>
-      //   <h6>{this.props.price}</h6>
-      //   <p>{this.props.description}</p>
-      // </div>
+      <div>
+        <img src={this.props.imgUrl} alt=''/>
+        <h4>{this.props.title}</h4>
+        <h5>{this.props.authors}</h5>
+        <h6>${this.props.price}</h6>
+        <p>{this.props.description}</p>
+      </div>
     )
   }
 }

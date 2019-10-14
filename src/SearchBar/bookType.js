@@ -15,7 +15,6 @@ export class BookType extends Component {
             placeholder="book type"
             onChange={(e) => {
               e.preventDefault();
-              //console.log(e.target.value);
               this.props.bookFilter(e.target.value);
             }}
             >

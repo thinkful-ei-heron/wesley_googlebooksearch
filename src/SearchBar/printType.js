@@ -11,7 +11,6 @@ export class PrintType extends Component {
           value="None" 
           onChange={(e) => {
             e.preventDefault();
-            //console.log(e.target.value);
             this.props.printFilter(e.target.value);
           }}
           >

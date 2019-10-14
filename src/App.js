@@ -8,7 +8,7 @@ import BookList from './BookList/bookList';
 
 export class App extends Component {
   state ={
-    books: ['test']
+    books: []
   }
 
   setResults = (results) => {
@@ -37,6 +37,7 @@ export class App extends Component {
       />
       <BookList 
         books={this.state.books}
+        key={this.state.index}
       />
     </div>
   );
