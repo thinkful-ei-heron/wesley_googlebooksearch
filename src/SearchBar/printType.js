@@ -8,7 +8,7 @@ export class PrintType extends Component {
         <select 
           type="selector" 
           name="printType" 
-          value="None" 
+          value={this.props.PrintType} 
           onChange={(e) => {
             e.preventDefault();
             this.props.printFilter(e.target.value);

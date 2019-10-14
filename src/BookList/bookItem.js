@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import BookList from './bookList';
 
 
 // Generate book item.

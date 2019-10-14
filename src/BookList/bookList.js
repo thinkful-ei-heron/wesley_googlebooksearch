@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BookItem from './bookItem'
-import App from '../App';
-
+import './bookList.css';
 
 // Map over store results and render a 'book item for each result'
 export class BookList extends Component {
@@ -10,7 +9,7 @@ export class BookList extends Component {
     const bookResults = this.props.books;
     //console.log(this.props.books);
     return (
-      <div>
+      <div className="bookList">
         <h4>Search Results</h4>  
           {bookResults.map(result => {
             if(bookResults === false){

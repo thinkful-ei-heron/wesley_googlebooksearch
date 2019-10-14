@@ -11,7 +11,7 @@ export class BookType extends Component {
           <select 
             type="selector" 
             name="bookType" 
-            value="None" 
+            value={this.props.BookType} 
             placeholder="book type"
             onChange={(e) => {
               e.preventDefault();
