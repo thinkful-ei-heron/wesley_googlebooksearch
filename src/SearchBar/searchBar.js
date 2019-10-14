@@ -29,6 +29,7 @@ export class SearchBar extends Component {
     const searchTerm = data.get('searchBox');
     //Need to add the Functionality to capture the value, set state to be that value and THEN fetch
     const printType = data.get('printType');
+    //const printType = this.state.printType;
     const bookType = data.get('bookType');
     const url = 'https://www.googleapis.com/books/v1/volumes?q=';
     fetch(`${url}${searchTerm}&printType=${printType}&filter=${bookType}`)

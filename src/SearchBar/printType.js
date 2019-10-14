@@ -12,6 +12,7 @@ export class PrintType extends Component {
           onChange={(e) => {
             e.preventDefault();
             this.props.printFilter(e.target.value);
+            console.log(this.props.PrintType)
           }}
           >
           <option value="all">All</option>
